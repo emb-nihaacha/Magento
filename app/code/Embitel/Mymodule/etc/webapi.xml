@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    
+    <!-- CREATING REST API TO DISPLAY 3 USERS DATA -->
+   
+    <route method="GET" url="/V1/embitel/mymodule">
+        <service class="Embitel\Mymodule\Api\StaticInterface" method="getProfile"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+
+    <!-- CREATING REST API TO CUSTOMER GROUP -->
+
+    <route method="POST" url="/V1/embitel/custgroup">
+        <service class="Embitel\Mymodule\Api\StaticInterface" method="setCustomerGroup"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+</routes>

@@ -1,0 +1,49 @@
+type Query
+{
+    userstore:userstoreOutput @resolver(class:"Embitel\\Mymodule\\Model\\Resolver\\userdetail") @doc(description:"List of user Stores")
+}
+type userstoreOutput
+{
+total:Int @doc(description:"Total Stores"),
+list:[userstore] @doc(description:"user Data")
+}
+
+type userstore
+{
+    firstname:String @doc(description:"user FirstName"),
+    lastname:String @doc(description:"user LastName"),
+    email:String @doc(description:"user email"),
+    telephone:String @doc(description:"user Telephone"),
+    city:String @doc(description:"user city"),
+    state:String @doc(description:"user state"),
+    country:String @doc(description:"user country"),
+}
+
+
+# Graphql Mutation
+
+
+type Mutation {
+    addcategories (input:categoriesInput! @doc(description:"An input you have to fill")):
+    addcategoriesOutput @resolver(class:"Embitel\\Mymodule\\Model\\Resolver\\customergroup")
+    @doc (description:"output of mutation")
+}
+
+input categoriesInput {
+    groupId:Int! @doc(description:"enter the groupid")
+    groupName:String! @doc(description:"enter the groupName")
+}
+
+type addcategoriesOutput {
+    groupId:Int @doc(description:"status of mutation")
+    groupName:String! @doc(description:"message of mutation")
+}
+
+
+
+
+
+
+
+
+
